@@ -9,6 +9,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <stdint.h>
 
 static long long now_us(void) {
     struct timeval tv;
