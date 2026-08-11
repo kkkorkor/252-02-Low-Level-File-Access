@@ -24,8 +24,11 @@ int main(void){
 
   while((nread = read(in, block, sizeof(block))) > 0){
     write(out, block, nread);
-    newlen += nread;
+    //newlen += nread;
   }
+  
+  newlen = lseek(in, 0, SEEK_END); //use lseek find length of the file
+
   int startnull = ((newlen + 1) / 2) - 8; // half of 16
   lseek(out, startnull, SEEK_SET);
   for(int i = 0; i < 16; i++){
